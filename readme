@@ -1,0 +1,38 @@
+{
+ Project : "ONLINE STUDENT TRACKING SYSTEM”
+ , Author: "DIWANSHI PANDEY"
+ , System Description: [
+                       "Student Tracking System automates the functions performed by teachers and parents in a school",
+		       "This system facilitates the parent to register on website and then to reques the administrator to assign the Student to    			       their respective parents",
+                       "This system facilitates Parents to see the result and performance of the student online which is added by teachers", 
+                       "Parents can also give application for leave or any other important message to the teacher",
+                       "Administrator approves or disapproves the requests from parents and manages student and teacher records"
+                       ]
+ , Roles : { Parents : 
+			[
+			"Send claim request to admin",
+		        "Track claim request", 
+			"View Result Exam wise",
+			"View Full Year’s Result",
+			"View Monthly Performance",
+			"View Full Year’s Performance",
+			"Send application or message to teacher"
+	    },
+            { Teacher :
+			[
+			"View applications and accept or reject it",
+			"Add or  Update result of a student",
+			"Add or Update performance of a student"
+			]	
+	     },
+	     { Admin :
+			[ 
+			"Search authorized student details",
+			"Search Teacher detail",
+			"Accept or reject claim request",
+			"Add or update student and teacher details",
+			"Deactivate or activate student and teacher",
+			"Assign teacher to new class or existing class"
+			]
+	     }
+}
