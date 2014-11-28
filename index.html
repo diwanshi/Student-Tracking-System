@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+  <title>Student Tracking System</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <!-- modernizr enables HTML5 elements and feature detects -->
+  <script type="text/javascript">
+  function isUsername()
+{
+  var alphaExpu = /^[0-9a-z,._]+$/;
+  var usernam=document.login.ad_uname.value;
+  var usr=document.getElementById('usrname1');
+  if(usernam!="")
+  {
+	if(!usernam.match(alphaExpu))
+	{
+		//document.field.usrname.focus();
+		usr.innerHTML="<font color='red'> Invalid Username </font>";
+		return false;
+	}
+	
+   else if(usernam.length<5 || usernam.length>20)
+   {
+	usr.innerHTML="<font color='red'> Username must be between 5-20 characters </font>";
+	return false;
+   }
+	else
+	{
+		usr.innerHTML="&#10004";
+		return true;
+	} 
+  }
+  else if(usernam.length==0)
+   {
+	usr.innerHTML="<font color='red'>Username is must </font>";
+	return false;
+   }
+ }
+ 
+ function password()
+{
+   var pawd1=document.getElementById('ad_pwd').value;
+   var palt=document.getElementById('pwd1');
+ if(pawd1.length==0)
+  {
+    palt.innerHTML="<font color='red'> Password is must</font>";
+    //document.getElementById('pwd').focus();
+   return false;
+  }
+  else if(pawd1.length<6)
+  {
+	palt.innerHTML="<font color='red'> Password must be of greater than 5 characters</font>";
+    //document.getElementById('pwd').focus();
+   return false;
+  }
+  else if(pawd1.length>12)
+  {
+	palt.innerHTML="<font color='red'> Password must be of less than 13 characters</font>";
+    //document.getElementById('pwd').focus();
+   return false;
+  }
+ else
+  {
+    palt.innerHTML="&#10004";
+    return true;
+  }
+
+}
+function madeselection()
+{
+ var selct=document.getElementById('role');
+  var salt=document.getElementById('role1'); 
+ 
+  if(selct.value=="Select Role")
+  {
+    salt.innerHTML="<font color='red'> Choose Role</font>";
+    //selct.focus();
+   return false;
+  }
+  else
+  { 
+     return true;
+  }
+}
+  function slctemp()
+{
+var saalt=document.getElementById('role1'); 
+saalt.innerHTML="&#10004";
+ }
+ 
+ function chkform()
+ {
+	if(isUsername())
+	{
+		if(password())
+		{
+			if(madeselection())
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		else
+		{
+			return false;
+		}
+	}
+	else
+	{
+		return false;
+	}
+}
+  </script>
+</head>
+
+<body>
+  <div id="main">
+    <header>
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1>Online<span class="logo_colour"> Student Tracking System</span></h1>
+          <h2>Simple and easy way to track your children's activities!!!!</h2>
+        </div>
+      </div>
+      <nav>
+        <div id="menu_container">
+          <ul class="sf-menu" id="nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="examples.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div id="site_content">
+      <div id="sidebar_container">
+        <div class="sidebar">
+          <h3>Parents's Registration</h3>
+		  <h3>Not Registered yet??</h3>
+          <h4>Sign Up!!!</h4>
+	  
+	  <h3><a href="parent_register.html">Register Here</a></h3>
+          </div>
+
+	<div class="sidebar">
+          <h3>Login</h3>
+	  <form name="login" action="admin_signin.php" method="post" onsubmit="return chkform()">
+	   <font color="black">Username:</font><br><input type="text" name="ad_uname" id="ad_uname" onBlur="isUsername()"><span id=usrname1 style="float:right;"></span><br><br>
+	   <font color="black">Password:</font><br><input type="password" name="ad_pwd" id="ad_pwd" onBlur="password()"><span id=pwd1 style="float:right;"></span><br><br>
+		<font color="black">Role:</font><select name="role" id="role" onChange="slctemp()" onBlur="madeselection()">
+		<option>Select Role</option>
+		<option value="1">Administrator</option>
+		<option value="2">Parent</option>
+		<option value="3">Teacher</option>
+		</select><span id=role1 style="float:right;"></span>
+
+	   <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" id="submit" value="SignIn">
+           </form>
+        </div>
+      </div>
+      <div class="content">
+        <h2>Welcome to the Online Student Tracking System</h2>
+        <p>For many years, parents have been concerned about their children's academics. With households becoming nuclear which necessitates both parents to work it is hard for them to constantly monitor their child's progress at school. Like their monthly performance, their daily assignments or home work are completed or not. Also it's a bit infeasible for them to visit school for trivial matters.</p>
+<p>Student Tracking System will facilitate parents to track all the activities and progress of their children. This system also provides facility to teachers to communicate with the parents directly on regular basis.</p>
+      </div>
+    </div>
+    <footer>
+      <p>Tyagi Public School|Student Tracking System</p>
+    </footer>
+  </div>
+  <p>&nbsp;</p>
+</body>
+</html>

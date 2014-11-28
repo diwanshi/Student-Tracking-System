@@ -1,0 +1,576 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Student Tracking System</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <!-- modernizr enables HTML5 elements and feature detects -->
+  <script type="text/javascript">
+function isAlphabet1()
+{
+  var alphaExp = /^[a-zA-Z]+$/;
+  var fnamee=document.field.fname.value;
+  var nalt=document.getElementById('fname1');
+  if(fnamee!="")
+   {
+      if(!fnamee.match(alphaExp))
+      {
+       nalt.innerHTML="<font color='red'> Invalid Characters </font>";
+       //document.field.fname.focus();
+        document.field.fname.value="";
+         return false; 	
+       }
+	   else
+	   {
+  		  nalt.innerHTML="&#10004";
+		    return true; 
+        }
+   }
+  else  if(fnamee.length==0)
+  {
+   nalt.innerHTML="<font color='red'> Invalid Name</font>";
+    //document.getElementById('fname').focus();
+   return false;
+  }
+
+}
+function isAlphabet2()
+{
+  var alphaExp1 = /^[a-zA-Z]+$/;
+  var lnamee=document.field.lname.value;
+  var nalt1=document.getElementById('lname1');
+  if(lnamee!="")
+   {
+      if(!lnamee.match(alphaExp1))
+      {
+       nalt1.innerHTML="<font color='red'> Invalid Characters </font>";
+       //document.field.lname.focus();
+        document.field.lname.value="";
+         return false; 	
+       }
+	   else
+	   {
+  		  nalt1.innerHTML="&#10004";
+		    return true; 
+        }
+   }
+  else  if(lnamee.length==0)
+  {
+   nalt1.innerHTML="<font color='red'> Invalid Last Name</font>";
+    //document.getElementById('lname').focus();
+   return false;
+    }
+  
+}
+
+function isAlphabet3()
+{
+  var alphaExp2 = /^[a-z A-Z]+$/;
+  var occp=document.field.occ.value;
+  var nalt2=document.getElementById('occ1');
+  if(occp!="")
+   {
+      if(!occp.match(alphaExp2))
+      {
+       nalt2.innerHTML="<font color='red'> Invalid Characters </font>";
+       //document.field.occ.focus();
+        document.field.occ.value="";
+         return false; 	
+       }
+	   else
+	   {
+  		  nalt2.innerHTML="&#10004";
+		    return true; 
+        }
+   }
+  else  if(occp.length==0)
+  {
+   nalt2.innerHTML="<font color='red'> Invalid Occupation</font>";
+    //document.getElementById('occ').focus();
+   return false;
+  }
+}
+ function isBirthdate() 
+ {
+	var today = new Date();
+	var d = today.getDate();
+    var m = today.getMonth();
+    var y = today.getFullYear();
+	var birthdate=new Date(document.getElementById('dob').value);
+	var dt = birthdate.getDate();
+    var mn = birthdate.getMonth();
+    var yr = birthdate.getFullYear();
+	var diff=y-yr;
+	if(diff<18)
+	{
+	document.getElementById('dob1').innerHTML = "<font color='red'> Incorrect Date</font>";
+	document.getElementById('dob').value ="";
+	//document.field.dob.focus();
+	return false;
+	}
+	else if(diff>18)
+	{
+	document.getElementById('dob1').innerHTML = "&#10004";
+	return true;
+	}
+	else
+	{
+		document.getElementById('dob1').innerHTML = "<font color='red'>Must Select Date</font>";
+		document.getElementById('dob').value ="";
+	}
+	
+}
+
+function isNumeric()
+{
+  var elem=document.field.mobile.value;
+  var nalt=document.getElementById('mobile1');
+ if(elem.length!=0)
+ {
+    var numericExpression = /^[0-9]+$/;
+	 if(elem.match(numericExpression))
+    {
+		if(elem.length>13)
+		{
+		nalt.innerHTML="<font color='red'> Invalid MobileNo</font>";
+		document.field.mobile.focus();
+		document.field.mobile.value="";
+		return false;
+		}
+		else if(elem.length<10)
+		{
+		nalt.innerHTML="<font color='red'> Invalid MobileNo</font>";
+		document.field.mobile.focus();
+		document.field.mobile.value="";
+		return false;
+		}
+		else
+		{
+         nalt.innerHTML="&#10004";
+         return true;
+		}
+    }
+	else
+	{
+		  nalt.innerHTML="<font color='red'> Numeric Values Only</font>";
+		  document.field.mobile.focus();
+	 	  document.field.mobile.value="";
+       return false;
+	}
+  }
+  else if(elem.length==0)
+  {
+		nalt.innerHTML="<font color='red'> Invalid MobileNo</font>";
+		//document.field.mobile.focus();
+		//document.field.mobile.value="";
+		return false;
+  }
+  }
+  function madeselection()
+{
+ var selct=document.getElementById('rel');
+  var salt=document.getElementById('rel1'); 
+ 
+  if(selct.value=="Please Choose")//|| (userlen.value.length==0) || (phno.value.length==0)|| (pawd.value.length==0) || (pawdcon.value.length==0) || (nam.value.length==0))
+  {
+    salt.innerHTML="<font color='red'> Choose Relationship</font>";
+    //selct.focus();
+   return false;
+  }
+  else
+  { 
+     return true;
+  }
+}
+  function slctemp()
+{
+var saalt=document.getElementById('rel1'); 
+saalt.innerHTML="&#10004";
+ }
+ function isAlphanumeric1()
+{
+  var alphaExp3 = /^[0-9 a-zA-Z,-.()/]+$/;
+  var add=document.field.off_add.value;
+  var uadd=document.getElementById('off_add1');
+  if(add!="")
+  {
+	if(!add.match(alphaExp3))
+	{
+    //document.field.user.focus();
+    uadd.innerHTML="<font color='red'> Invalid Address</font>";
+	add="";
+    return false;
+	}
+	else
+	{
+		uadd.innerHTML="&#10004";
+		return true;
+	} 
+  }
+  else
+   {
+	uadd.innerHTML="";
+	return true;
+   }
+ }
+ 
+ function isNumeric1()
+{
+  var elem1=document.field.off_no.value;
+  var no=document.getElementById('off_no1');
+ if(elem1.length!=0)
+ {
+    var numericExpression1 = /^[0-9]+$/;
+	 if(elem1.match(numericExpression1))
+    {
+		if(elem1.length>13)
+		{
+		no.innerHTML="<font color='red'> Invalid Number</font>";
+		//document.field.mobile.focus();
+		document.field.off_no.value="";
+		return false;
+		}
+		else if(elem1.length<10)
+		{
+		no.innerHTML="<font color='red'> Invalid Number</font>";
+		//document.field.mobile.focus();
+		document.field.off_no.value="";
+		return false;
+		}
+		else
+		{
+         no.innerHTML="&#10004";
+         return true;
+		}
+    }
+	else
+	{
+		  no.innerHTML="<font color='red'> Numeric Values Only</font>";
+		  //document.field.mobile.focus();
+	 	  document.field.off_no.value="";
+       return false;
+	}
+  }
+  else
+   {
+	no.innerHTML="";
+	return true;
+   }
+  }
+  
+  function isAlphabet4()
+{
+  var alphaExp4 = /^[a-z A-Z]+$/;
+  var desig=document.field.desg.value;
+  var nalt4=document.getElementById('desg1');
+  if(desig!="")
+   {
+      if(!desig.match(alphaExp4))
+      {
+       nalt4.innerHTML="<font color='red'> Invalid Characters </font>";
+       //document.field.occ.focus();
+        document.field.desg.value="";
+         return false; 	
+       }
+	   else
+	   {
+			nalt4.innerHTML="&#10004";
+		    return true; 
+        }
+   }
+   else
+   {
+	nalt4.innerHTML="";
+	return true;
+   }
+}
+
+function isEmail()
+{
+  var emal=document.field.email.value;
+  var ealt=document.getElementById('email1');
+  if(emal!="")
+  {
+    var emailExp = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([com\co\.\in])+$/;
+    if(!emal.match(emailExp))
+    {
+	   //document.field.email.focus();
+    
+		ealt.innerHTML="<font color='red'> Invalid Email id </font>";
+		 return false; 	
+	  }
+	  else
+	  {
+		 ealt.innerHTML="&#10004";
+		//document.getElementById('email').focus();
+		return true;
+      }
+    }    
+ else if(emal.length==0)
+ {
+	ealt.innerHTML="<font color='red'> Invalid Email id</font>";
+	return false; 
+ }
+}
+function isUsername()
+{
+  var alphaExpu = /^[0-9a-z,._]+$/;
+  var usernam=document.field.usrname.value;
+  var usr=document.getElementById('usrname1');
+  if(usernam!="")
+  {
+	if(!usernam.match(alphaExpu))
+	{
+		//document.field.usrname.focus();
+		usr.innerHTML="<font color='red'> Invalid Username </font>";
+		return false;
+	}
+	
+   else if(usernam.length<5 || usernam.length>20)
+   {
+	usr.innerHTML="<font color='red'> Username must be between 5-20 characters </font>";
+	return false;
+   }
+	else
+	{
+		usr.innerHTML="&#10004";
+		return true;
+	} 
+  }
+  else if(usernam.length==0)
+   {
+	usr.innerHTML="<font color='red'>Username is must </font>";
+	return false;
+   }
+ }
+ 
+ function password()
+{
+   var pawd1=document.getElementById('pwd').value;
+   var palt=document.getElementById('pwd1');
+ if(pawd1.length==0)
+  {
+    palt.innerHTML="<font color='red'> Password is must</font>";
+    //document.getElementById('pwd').focus();
+   return false;
+  }
+  else if(pawd1.length<6)
+  {
+	palt.innerHTML="<font color='red'> Password must be of greater than 5 characters</font>";
+    //document.getElementById('pwd').focus();
+   return false;
+  }
+  else if(pawd1.length>12)
+  {
+	palt.innerHTML="<font color='red'> Password must be of less than 13 characters</font>";
+    //document.getElementById('pwd').focus();
+   return false;
+  }
+ else
+  {
+    palt.innerHTML="&#10004";
+    return true;
+  }
+
+}
+
+function pass()
+{
+  var pawd2=document.getElementById('pwd').value;
+  var pawdcon2=document.getElementById('rpwd').value;
+  var palt1=document.getElementById('pwd1');
+  var pcalt=document.getElementById('rpwd1');
+  
+ if(pawdcon2.length==0)  {
+    pcalt.innerHTML="<font color='red'> Password Confirmation is must</font>";
+    //pawdcon.focus();
+   return false;
+    }
+   
+ else if(pawd2!=pawdcon2)
+  {
+    pcalt.innerHTML="";
+    palt1.innerHTML="<font color='red'> Password Mismatch</font>";
+    return false;
+  }
+  else
+  {
+    palt1.innerHTML="&#10004";
+    pcalt.innerHTML="&#10004";
+    return true;
+  }
+}
+
+
+function chkform()
+{
+  var fnam=document.getElementById('fname');
+  var lnam=document.getElementById('lname');
+  var d_o_b=document.getElementById('dob');
+  var mob=document.getElementById('mobile');
+  var occup=document.getElementById('occ');
+  var relation=document.getElementById('rel');
+  var emailid=document.getElementById('email');
+  var userlen=document.getElementById('usrname');
+  var pawd=document.getElementById('pwd');  
+  var pawdcon=document.getElementById('rpwd');      
+
+  if(isAlphabet1())   
+  {   
+	if(isAlphabet2())
+	{
+	  if(isBirthdate())
+	  {
+		if(isAlphabet3())
+		{
+		  if(isEmail())
+		  {
+		    if(isUsername())
+			{
+			if(madeselection())
+			{
+			if(password())
+            { 
+             if(pass())
+             {
+              if(isNumeric())
+              { 
+               return true;                
+              }
+			  else
+			  {
+				return false;
+			  }
+             }
+			 else
+			  {
+				return false;
+			  }
+			 
+            }
+			else
+			  {
+				return false;
+			  }
+            }
+			else
+			  {
+				return false;
+			  }
+           }
+		   else
+			  {
+				return false;
+			  }
+         } 
+		 else
+			  {
+				return false;
+			  }
+        }
+		else
+			  {
+				return false;
+			  }
+      }
+	  else
+			  {
+				return false;
+			  }
+	 }
+	 else
+			  {
+				return false;
+			  }
+	}
+   else
+   {
+     return false;
+   }
+}   
+</script>
+</head>
+
+<body>
+  <div id="main">
+    <header>
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1>Online<span class="logo_colour"> Student Tracking System</span></h1>
+          <h2>Simple and easy way to track your children's activities!!!!</h2>
+        </div>
+      </div>
+      <nav>
+        <div id="menu_container">
+          <ul class="sf-menu" id="nav">
+            <li><a href="login_success.php">Home</a></li>
+            <li><a href="examples.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+			
+	
+          </ul>
+        </div>
+      </nav>
+    </header>
+     <div id="site_content">
+	
+      <div class="content">
+        
+	<div class="form_settings">
+	<h3 align="center">Please enter your details below to register.</h3><br>
+	<p>Fields marked with asterisk<font color='red'>(*) </font>are mandatory!!!</p>
+	<form name="field" action="register.php" method="post" onsubmit="return chkform()">
+	<div id="fld">
+	<p><span style="float:left; width:150px;">First Name:<font color='red'>*</font></span><input type="text" name="fname" id="fname" onBlur="isAlphabet1()" ><span id=fname1 style="float:right;"></span></p>
+	<p><span style="float:left; width:150px;">Last Name:<font color='red'>*</font></span><input type="text" name="lname" id="lname" onBlur="isAlphabet2()" ><span id=lname1 style="float:right;"></span></p>
+	<p><span style="float:left; width:150px;">Date Of Birth:<font color='red'>*</font></span><input type="date" name="dob" id="dob" onBlur="isBirthdate()" ><span id=dob1 style="float:right;"></span></p>
+	<p><span style="float:left; width:150px;">Mobile Number:<font color='red'>*</font></span><input type="text" name="mobile" id="mobile" onBlur="isNumeric()" ><span id=mobile1 style="float:right;"></span></p>
+	<p><span style="float:left; width:150px;">Occupation:<font color='red'>*</font></span><input type="text" name="occ" id="occ" onBlur="isAlphabet3()" ><span id=occ1 style="float:right;"></span></p>
+	<p><span style="float:left; width:150px;">Registering As:<font color='red'>*</font></span><select name="rel" id="rel" onChange="slctemp()" onBlur="madeselection()"><option>Please Choose</option>
+	<option value="Father">Father</option><option value="Mother">Mother</option><option value="Guardian">Guardian</option></select><span id=rel1 style="float:right;"></span></p>
+	<p><span style="float:left; width:150px;">Office Address:</span><textarea rows="3" cols="20" name="off_add" id="off_add" onBlur="isAlphanumeric1()"></textarea><span id=off_add1 style="float:right;" ></span></p>
+	<p><span style="float:left; width:150px;">Office Number:</span><input type="text" name="off_no" id="off_no" onBlur="isNumeric1()"><span id=off_no1 style="float:right;"></span></p>
+	<p><span style="float:left; width:150px;">Designation:</span><input type="text" name="desg" id="desg" onBlur="isAlphabet4()"/><span id=desg1 style="float:right;"></span></p>
+	<p><span style="float:left; width:150px;">Email-Id:<font color='red'>*</font></span><input type="text" name="email" id="email" onBlur="isEmail()"><span id=email1 style="float:right;"></span></p>
+	<p><span style="float:left; width:150px;">Username:<font color='red'>*</font></span></span><input type="text" name="usrname" id="usrname" onBlur="isUsername()"><span id=usrname1 style="float:right;"></span></p>
+	<p><span style="float:left; width:150px;">Password:<font color='red'>*</font></span><input type="password" name="pwd" id="pwd" onBlur="password()"><span id=pwd1 style="float:right;"></span></p>
+	<p><span style="float:left; width:150px;">Re-enter Password:<font color='red'>*</font></span><input type="password" name="rpwd" id="rpwd"onBlur="pass()"><span id=rpwd1 style="float:right;" ></span></p>
+	<p style="padding-top:15px"><span>&nbsp;</span><input class="submit" type="submit" name="submit" value="Register"></p>
+	<p style="float:left;"><input class="reset" type="reset" name="reset" value="Reset"></p>
+	
+	</div>
+	</form>
+	</div>
+    </div>
+      <div id="sidebar_container">
+        <div class="sidebar">
+
+        </div>
+        <div class="sidebar">
+          
+        </div>
+
+	<div class="sidebar">
+          
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>Tyagi Public School|Student Tracking System</p>
+    </footer>
+  </div>
+  <p>&nbsp;</p>
+  <!-- javascript at the bottom for fast page loading -->
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/jquery.easing-sooper.js"></script>
+  <script type="text/javascript" src="js/jquery.sooperfish.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('ul.sf-menu').sooperfish();
+    });
+  </script>
+</body>
+</html>
