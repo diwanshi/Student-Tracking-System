@@ -35,6 +35,4 @@
 			"Assign teacher to new class or existing class"
 			]
 	     }
- , database : "mysql"
- , webstack : "wamp" 
 }
